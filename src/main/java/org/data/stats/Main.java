@@ -19,6 +19,11 @@ public class Main {
         try (Stream<String> lines = Files.lines(Path.of(filePath))) {
             long[] numbers = lines.mapToLong(Long::parseLong).toArray();
 
+            if (numbers.length == 0) {
+                System.out.println("The file is empty.");
+                return;
+            }
+
             long max = numbers[0];
             long min = numbers[0];
             double average;
